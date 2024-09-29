@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace RESTAPI_Alimentos.Models
 {
@@ -17,7 +18,10 @@ namespace RESTAPI_Alimentos.Models
         public int? CategoriaId { get; set; }
         public int? UnidadId { get; set; }
 
+        [JsonIgnore]
         public virtual Categoria? Categoria { get; set; }
+
+        [JsonIgnore]
         public virtual Unidad? Unidad { get; set; }
     }
 }
