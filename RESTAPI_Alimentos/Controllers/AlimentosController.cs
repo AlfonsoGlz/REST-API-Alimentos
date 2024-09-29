@@ -22,9 +22,20 @@ namespace RESTAPI_Alimentos.Controllers
         [Route("listar_todo")]
         public async Task<IActionResult> ListarTodo()
         {
-            Task<List<Alimento>> lsAlimentos = _context.Alimentos.ToListAsync();
+            Task<List<Alimento>> lsAlimentos = _context.Alimentos.Include("Unidad").ToListAsync();
             return Ok(await lsAlimentos);
         }
+
+        [HttpPost]
+        [Route("agregar_alimento")]
+        public async Task<IActionResult> AgregarAlimento(Alimento a)
+        {
+            await _context.Alimentos.AddAsync(a);
+            await _context.SaveChangesAsync();
+
+            return Ok();  
+        }
+
 
 
 
