@@ -67,7 +67,15 @@ namespace RESTAPI_Alimentos.Controllers
 
             await _context.SaveChangesAsync();
             return Ok();
+        }
 
+        [HttpGet]
+        [Route("obtener_alimentoId/{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var alimento = _context.Alimentos.FindAsync(id);
+
+            return Ok(await alimento);
         }
 
 
