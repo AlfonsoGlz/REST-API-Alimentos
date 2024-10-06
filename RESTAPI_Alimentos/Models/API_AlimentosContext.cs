@@ -18,7 +18,7 @@ namespace RESTAPI_Alimentos.Models
 
         public virtual DbSet<Alimento> Alimentos { get; set; } = null!;
         public virtual DbSet<Categoria> Categorias { get; set; } = null!;
-        public virtual DbSet<Unidad> Unidads { get; set; } = null!;
+        public virtual DbSet<Unidad> Unidad { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
