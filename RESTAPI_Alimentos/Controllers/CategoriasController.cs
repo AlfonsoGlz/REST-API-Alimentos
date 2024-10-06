@@ -35,6 +35,19 @@ namespace RESTAPI_Alimentos.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [Route("editar_categoria")]
+        public async Task<IActionResult> EditarCategoria(Categoria c)
+        {
+            var categoria = await _context.Categorias.FindAsync(c.IdCategoria);
+
+            categoria!.NombreCategoria = c.NombreCategoria;
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
 
     }
 }
