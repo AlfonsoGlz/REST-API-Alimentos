@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Cliente_REST_Alimentos.Models.AlimentosCl>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAlimentos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreAlimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unidad!.NombreUnidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calorias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proteinas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carbohidratos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grasas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fibra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sodio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAlimentos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreAlimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.Unidad!.NombreUnidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calorias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proteinas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carbohidratos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grasas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fibra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sodio)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
